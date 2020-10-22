@@ -22,7 +22,11 @@ describe("Counter Testing", () => {
     
   });
 
-  
+  test('check increment button renders - enzyme', () => {
+    const wrapper = shallow(<App/>)
+    expect(wrapper.find('#increment-btn').text()).toBe('Increment')
+    
+  });
 
 })
 
