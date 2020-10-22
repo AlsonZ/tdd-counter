@@ -9,6 +9,12 @@ configure({ adapter: new Adapter() });
 
 
 describe("Counter Testing", () => {
+
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<App/>)
+  })
+
   test('check Title renders - native', () => {
     const { getByText } = render(<App />);
     const linkElement = getByText('TDD Counter');
@@ -16,17 +22,22 @@ describe("Counter Testing", () => {
   });
 
   test('check Title renders - enzyme', () => {
-    const wrapper = shallow(<App/>)
+    // const wrapper = shallow(<App/>)
     // console.log(wrapper.debug());
     expect(wrapper.find('h2').text()).toContain('TDD Counter')
     
   });
 
   test('check increment button renders - enzyme', () => {
-    const wrapper = shallow(<App/>)
+    // const wrapper = shallow(<App/>)
     expect(wrapper.find('#increment-btn').text()).toBe('Increment')
     
   });
+
+  test('check initial value of state', () => {
+    // const wrapper = shallow(<App/>)
+
+  })
 
 })
 
