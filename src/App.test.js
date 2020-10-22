@@ -12,7 +12,7 @@ describe("Counter Testing", () => {
 
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<App/>)
+    wrapper = shallow(<App/>);
   })
 
   test('check Title renders - native', () => {
@@ -24,21 +24,21 @@ describe("Counter Testing", () => {
   test('check Title renders - enzyme', () => {
     // const wrapper = shallow(<App/>)
     // console.log(wrapper.debug());
-    expect(wrapper.find('h2').text()).toContain('TDD Counter')
+    expect(wrapper.find('h2').text()).toContain('TDD Counter');
     
   });
 
   test('check increment button renders - enzyme', () => {
     // const wrapper = shallow(<App/>)
-    expect(wrapper.find('#increment-btn').text()).toBe('Increment')
+    expect(wrapper.find('#increment-btn').text()).toBe('Increment');
     
   });
 
   test('check initial value of state', () => {
-    // const wrapper = shallow(<App/>)
+    expect(wrapper.find('#counter-value').text()).toBe("0");
 
-  })
+  });
 
-})
+});
 
 
