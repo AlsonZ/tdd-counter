@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
       <h2>TDD Counter</h2>
+      <button id="increment-btn">Increment</button>
     </div>
   );
 }
