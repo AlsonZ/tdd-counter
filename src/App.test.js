@@ -36,8 +36,12 @@ describe("Counter Testing", () => {
 
   test('check initial value of state', () => {
     expect(wrapper.find('#counter-value').text()).toBe("0");
-
   });
+
+  test('check click event of increment button leading to state change', () => {
+    wrapper.find('#increment-btn').simulate('click');
+    expect(wrapper.find('#counter-value').text()).toBe('1')
+  })
 
 });
 
