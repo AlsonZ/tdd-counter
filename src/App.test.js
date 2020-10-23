@@ -31,7 +31,6 @@ describe("Counter Testing", () => {
   test('check increment button renders - enzyme', () => {
     // const wrapper = shallow(<App/>)
     expect(wrapper.find('#increment-btn').text()).toBe('Increment');
-    
   });
 
   test('check initial value of state', () => {
@@ -41,7 +40,18 @@ describe("Counter Testing", () => {
   test('check click event of increment button leading to state change', () => {
     wrapper.find('#increment-btn').simulate('click');
     expect(wrapper.find('#counter-value').text()).toBe('1')
-  })
+  });
+
+
+  test('check decrement button renders - enzyme', () => {
+    expect(wrapper.find('#decrement-btn').text()).toBe('Decrement');
+  });
+  test('check click event of decrement button leading to state change', () => {
+    wrapper.find('#increment-btn').simulate('click');
+    expect(wrapper.find('#counter-value').text()).toBe('1')
+    wrapper.find('#decrement-btn').simulate('click');
+    expect(wrapper.find('#counter-value').text()).toBe('0')
+  });
 
 });
 
