@@ -1,10 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
-import { configure,  shallow } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
- 
-configure({ adapter: new Adapter() });
+import { shallow } from 'enzyme';
+
 
 
 
@@ -42,10 +40,10 @@ describe("Counter Testing", () => {
     expect(wrapper.find('#counter-value').text()).toBe('1')
   });
 
-
   test('check decrement button renders - enzyme', () => {
     expect(wrapper.find('#decrement-btn').text()).toBe('Decrement');
   });
+
   test('check click event of decrement button leading to state change', () => {
     wrapper.find('#increment-btn').simulate('click');
     expect(wrapper.find('#counter-value').text()).toBe('1')
