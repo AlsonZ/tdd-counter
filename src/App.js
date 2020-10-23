@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Counter from './components/Counter';
 
 function App() {
 
-  const [counter, setCounter] = useState(0)
-
   return (
     <div className="App">
-      <h2>TDD Counter</h2>
-      <div id="counter-value">{counter}</div>
-      <button id="increment-btn" onClick={()=>{setCounter(counter+1)}}>Increment</button>
-      <button id="decrement-btn" onClick={()=>{setCounter(counter-1)}}>Decrement</button>
+      <Counter/>
     </div>
   );
 }
