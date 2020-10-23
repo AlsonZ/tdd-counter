@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
-import { shallow } from 'enzyme';
+import Counter from './components/Counter';
+import { shallow, mount } from 'enzyme';
 
 
 
@@ -10,7 +11,11 @@ describe("Counter Testing", () => {
 
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<App/>);
+    // shallow does not load nested components
+    // wrapper = shallow(<Counter/>);
+    
+    // mount loads all nested components 
+    wrapper = mount(<App/>);
   })
 
   test('check Title renders - native', () => {
