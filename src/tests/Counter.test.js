@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import App from '../App';
+import Counter from '../components/Counter';
 import { render } from '@testing-library/react';
-import App from './App';
-import Counter from './components/Counter';
 import { shallow, mount } from 'enzyme';
-
-
-
+import { CounterProvider } from '../contexts/CounterContext';
 
 describe("Counter Testing", () => {
 
@@ -13,12 +11,17 @@ describe("Counter Testing", () => {
   beforeEach(() => {
     // shallow does not load nested components
     // wrapper = shallow(<Counter/>);
-    
-    // mount loads all nested components 
-    wrapper = mount(<App/>);
+
+    // mount loads all components
+    wrapper = mount(
+      // provider here loads the provider just like how app.js does
+    <CounterProvider>
+      <Counter/>
+    </CounterProvider>
+      );
   })
 
-  test('check Title renders - native', () => {
+  test.skip('check Title renders - native', () => {
     const { getByText } = render(<App />);
     const linkElement = getByText('TDD Counter');
     expect(linkElement).toBeInTheDocument();
@@ -36,7 +39,10 @@ describe("Counter Testing", () => {
     expect(wrapper.find('#increment-btn').text()).toBe('Increment');
   });
 
-  test('check initial value of state', () => {
+  // test('check initial value of state', () => {
+  //   expect(wrapper.find('#counter-value').text()).toBe("0");
+  // });
+  test('check initial value of context', () => {
     expect(wrapper.find('#counter-value').text()).toBe("0");
   });
 
@@ -57,5 +63,3 @@ describe("Counter Testing", () => {
   });
 
 });
-
-
