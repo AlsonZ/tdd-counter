@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import App from '../App';
 import Counter from '../components/Counter';
-import { render } from '@testing-library/react';
 import { shallow, mount } from 'enzyme';
 import { CounterProvider } from '../contexts/CounterContext';
 
-describe("Counter Testing", () => {
+describe("Counter Testing - Enzyme", () => {
 
   let wrapper;
   beforeEach(() => {
@@ -21,20 +20,14 @@ describe("Counter Testing", () => {
       );
   })
 
-  test.skip('check Title renders - native', () => {
-    const { getByText } = render(<App />);
-    const linkElement = getByText('TDD Counter');
-    expect(linkElement).toBeInTheDocument();
-  });
-
-  test('check Title renders - enzyme', () => {
+  test('check Title renders', () => {
     // const wrapper = shallow(<App/>)
     // console.log(wrapper.debug());
     expect(wrapper.find('h2').text()).toContain('TDD Counter');
     
   });
 
-  test('check increment button renders - enzyme', () => {
+  test('check increment button renders', () => {
     // const wrapper = shallow(<App/>)
     expect(wrapper.find('#increment-btn').text()).toBe('Increment');
   });
