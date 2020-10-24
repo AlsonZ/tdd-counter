@@ -39,7 +39,7 @@ describe("Counter Testing - Enzyme", () => {
     expect(wrapper.find('#counter-value').text()).toBe("0");
   });
 
-  test('check click event of increment button leading to state change', () => {
+  test('check click event of increment button leading to context change', () => {
     wrapper.find('#increment-btn').simulate('click');
     expect(wrapper.find('#counter-value').text()).toBe('1')
   });
@@ -48,7 +48,7 @@ describe("Counter Testing - Enzyme", () => {
     expect(wrapper.find('#decrement-btn').text()).toBe('Decrement');
   });
 
-  test('check click event of decrement button leading to state change', () => {
+  test('check click event of decrement button leading to context change', () => {
     wrapper.find('#increment-btn').simulate('click');
     expect(wrapper.find('#counter-value').text()).toBe('1')
     wrapper.find('#decrement-btn').simulate('click');
